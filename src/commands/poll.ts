@@ -113,8 +113,11 @@ async function f(msg: Discord.Message, args: string[]) {
 	});
 }
 
+//! they must be able to send messages in the poll channel
 async function allowed(msg: Discord.Message): Promise<boolean> {
-	return true;
+	let channel = msg.guild.channels.cache.find(c => c.name === process.env.POLL_CHANNEL);
+	
+	return msg.member.permissionsIn(channel ?? msg.guild.systemChannel).has(2048);
 }
 
 const name: string = 'poll';
