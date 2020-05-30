@@ -1,0 +1,20 @@
+{
+  "name": "mr-bot",
+  "version": "0.1.0",
+  "description": "",
+  "main": "build/index.js",
+  "scripts": {
+		"start": "tsc-watch --onSuccess 'node .'"
+  },
+  "author": "Sarah Ohlin <sarahohlin1@gmail.com> (https://github.com/sarahkittyy)",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "tsc-watch": "^4.2.8",
+    "typescript": "^3.9.3"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.6",
+    "dotenv": "^8.2.0"
+  }
+}

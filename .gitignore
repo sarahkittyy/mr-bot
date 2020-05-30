@@ -1,0 +1,7 @@
+*.code-workspace
+.env
+
+build/*
+!build/.gitignore
+
+node_modules
