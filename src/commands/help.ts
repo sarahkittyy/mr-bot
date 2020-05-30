@@ -10,7 +10,7 @@ async function f(msg: Discord.Message, args: string[]) {
 	let available = availableCommands(msg);
 	let cmdList: string = available
 		.map(cmd => {
-			return `• \`${PREFIX}${cmd.name}\` -- ${cmd.desc}`;
+			return `• \`${PREFIX}${cmd.name}${cmd.fmt ? ' ' + cmd.fmt : ''}\` -- ${cmd.desc}`;
 		})
 		.join('\n');
 
@@ -28,5 +28,6 @@ async function allowed(msg: Discord.Message): Promise<boolean> {
 
 const name: string = 'help';
 const desc: string = 'This help menu';
+const fmt: string = '';
 
-export { f, allowed, name, desc };
+export { f, allowed, name, desc, fmt };

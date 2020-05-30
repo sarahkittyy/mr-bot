@@ -17,5 +17,6 @@ async function allowed(msg: Discord.Message): Promise<boolean> {
 
 const name: string = 'v';
 const desc: string = 'Bot version info';
+const fmt: string = '';
 
-export { f, allowed, name, desc };
+export { f, allowed, name, desc, fmt };

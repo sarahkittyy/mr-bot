@@ -30,6 +30,7 @@ export type CommandFunction =
 export interface Command {
 	name: string;
 	desc: string;
+	fmt: string;
 	allowed: (msg: Discord.Message) => Promise<boolean>;	
 	f: CommandFunction;
 };
