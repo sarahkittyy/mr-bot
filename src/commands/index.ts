@@ -11,7 +11,8 @@ export function maybeParseCommand(msg: string): string[] {
 		let cmd: string = msg.substr(process.env.PREFIX.length).split(' ')[0];
 		let args: string[] = msg.substr(process.env.PREFIX.length + cmd.length)
 			.split(',')
-			.map(s => s.trim());
+			.map(s => s.trim())
+			.filter(s => !!s);
 		return [cmd, ...args];
 	} else {
 		return [];
