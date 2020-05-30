@@ -2,11 +2,11 @@ import Discord from 'discord.js';
 
 import { error, success } from '../util';
 
-function f(msg: Discord.Message, args: string[]) {
-	return msg.channel.send(error('not implemented yet', ''));
+async function f(msg: Discord.Message, args: string[]) {
+	await msg.delete();
 }
 
-function allowed(msg: Discord.Message): boolean {
+async function allowed(msg: Discord.Message): Promise<boolean> {
 	return true;
 }
 

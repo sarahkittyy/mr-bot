@@ -14,7 +14,7 @@ bot.on('message', async (msg: Discord.Message) => {
 	if (cmd.length == 0) {
 		return;
 	} else {
-		return command(cmd[0], msg)(msg, cmd);
+		return (await command(cmd[0], msg))(msg, cmd);
 	}
 });
 

@@ -29,7 +29,7 @@ export type CommandFunction =
 export interface Command {
 	name: string;
 	desc: string;
-	allowed: (msg: Discord.Message) => boolean;	
+	allowed: (msg: Discord.Message) => Promise<boolean>;	
 	f: CommandFunction;
 };
 
@@ -40,11 +40,11 @@ const fns = {
 };
 
 /// returns the command function determined by it's name (name)
-export function command(name: string, msg: Discord.Message): CommandFunction {
+export async function command(name: string, msg: Discord.Message): Promise<CommandFunction> {
 	let f = fns[name];
 	if (!f) {
 		return unknown;	
-	} else if (!f.allowed(msg)) {
+	} else if (!(await f.allowed(msg))) {
 		return () => {
 			msg.channel.send(error(
 				'You don\'t have the correct permissions to run that :(',

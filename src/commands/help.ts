@@ -4,7 +4,7 @@ import { info, error } from '../util';
 
 import { availableCommands } from './';
 
-function f(msg: Discord.Message, args: string[]) {
+async function f(msg: Discord.Message, args: string[]) {
 	let { VERSION, PREFIX } = process.env;
 
 	let available = availableCommands(msg);
@@ -22,7 +22,7 @@ function f(msg: Discord.Message, args: string[]) {
 	));
 }
 
-function allowed(msg: Discord.Message): boolean {
+async function allowed(msg: Discord.Message): Promise<boolean> {
 	return true;
 }
 
