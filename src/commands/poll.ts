@@ -119,7 +119,7 @@ async function allowed(msg: Discord.Message): Promise<boolean> {
 	
 	return 
 		msg.member.permissionsIn(channel ?? msg.guild.systemChannel).has(2048) &&
-		msg.channel === channel;
+		msg.channel.id === channel.id;
 }
 
 const name: string = 'poll';
