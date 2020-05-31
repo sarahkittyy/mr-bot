@@ -6,7 +6,7 @@ import { error } from '../util';
 /// returns empty if it's not a command
 export function maybeParseCommand(msg: string): string[] {
 	// if it starts with the command prefix
-	if (msg.startsWith(process.env.PREFIX) && !msg.startsWith(process.env.PREFIX + ' ')) {
+	if (msg.startsWith(process.env.PREFIX) && !msg.startsWith(process.env.PREFIX + ' ') && msg.trim() !== process.env.PREFIX) {
 		// split the prefix off
 		let cmd: string = msg.substr(process.env.PREFIX.length).split(' ')[0];
 		let args: string[] = msg.substr(process.env.PREFIX.length + cmd.length)
