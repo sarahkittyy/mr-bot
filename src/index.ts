@@ -31,6 +31,9 @@ bot.on('error', () => {
 function login() {
 	bot.login(process.env.TOKEN)
 	.then(() => console.log('logged in...'))
-	.catch(() => console.error('couldn\'t log in!!'));
+	.catch((e) => {
+		console.error('couldn\'t log in!!');
+		console.error(e);	
+	});
 }
 login();
