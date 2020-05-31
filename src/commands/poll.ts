@@ -117,8 +117,7 @@ async function f(msg: Discord.Message, args: string[]) {
 async function allowed(msg: Discord.Message): Promise<boolean> {
 	let channel = msg.guild.channels.cache.find(c => c.name === process.env.POLL_CHANNEL);
 	
-	return 
-		msg.member.permissionsIn(channel ?? msg.guild.systemChannel).has(2048) &&
+	return msg.member.permissionsIn(channel ?? msg.guild.systemChannel).has(2048) &&
 		msg.channel.id === channel.id;
 }
 
